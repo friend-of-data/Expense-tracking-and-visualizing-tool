@@ -1,8 +1,18 @@
+import sys
+import csv
+
 def main():
     ...
 
 
-def function_1():
+def valid_input():
+    if len(sys.argv)==1:
+        name=input('Please provide a name for your file: ')
+
+    elif len(sys.argv)==2:
+        try:
+
+
     ...
 
 

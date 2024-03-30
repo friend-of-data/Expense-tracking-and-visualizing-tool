@@ -11,7 +11,7 @@ def valid_input():
 
     elif len(sys.argv)==2:
         try:
-
+            with open(sys.argv[2]) as file:
 
     ...
 

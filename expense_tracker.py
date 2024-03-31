@@ -18,6 +18,7 @@ def open_or_create():
         df['Date']=[date]
         df.set_index('Date',inplace=True)
         print(df)
+        df.to_csv('expense.csv')
 
 
 

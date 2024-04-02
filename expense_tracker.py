@@ -1,7 +1,6 @@
 import sys
 import csv
 import pandas as pd
-from datetime import datetime
 
 def main():
     ...
@@ -18,7 +17,8 @@ def open_or_create():
         df['Date']=[date]
         df.set_index('Date',inplace=True)
         print(df)
-        df.to_csv('expense.csv')
+        df.to_csv(name)
+        return df
 
 
 
@@ -26,17 +26,36 @@ def open_or_create():
 
     elif len(sys.argv)==2:
         try:
-            with open(sys.argv[2]) as file:
+            df=pd.read_csv(sys.argv[2])
+            print(df.tail(3))
+            new_date=input('Specify the date yyyy/mm/dd: ')
+            new=input('Please provide new value for each column,e.g. 10,15,...: ')
+            new=[int(i) for i in list(new.split(','))]
+            new_row=[new_date]+new
+            with open('expense.csv','a', newline='') as file:
+                writer=csv.writer(file)
+                writer.writerow(new_row)
+            df=pd.read_csv(sys.argv[2])
+            return df
+
+    
+            
+                
 
     ...
 
 
-def function_2():
+def total_diff(df):
+    df['Total']=df.sum(axis=1,numeric_only=True)
+    df['Diff']=df['Total'].diff()
+    df.to_csv(sys.argv[2])
+    return df
+    
     ...
 
 
-def function_n():
-    ...
+def bar_plot(col):
+    
 
 
 if __name__ == "__main__":

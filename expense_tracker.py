@@ -1,9 +1,12 @@
 import sys
 import csv
 import pandas as pd
+import matplotlib.pyplot as plt
 
 def main():
-    ...
+    df=open_or_create()
+    df=total_diff(df)
+    bar_plot(df,'Total')
 
 
 def open_or_create():
@@ -48,13 +51,17 @@ def open_or_create():
 def total_diff(df):
     df['Total']=df.sum(axis=1,numeric_only=True)
     df['Diff']=df['Total'].diff()
-    df.to_csv(sys.argv[2])
+    #df.to_csv(sys.argv[2])
     return df
     
     ...
 
 
-def bar_plot(col):
+def bar_plot(df,col):
+    plt.bar(df['Date'],df[col])
+    plt.xticks(rotation=45)
+    plt.plot(df['Date'], df[col].diff())
+    plt.show()
     
 
 

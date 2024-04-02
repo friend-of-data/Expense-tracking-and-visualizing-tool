@@ -20,9 +20,9 @@ def open_or_create():
         header=['Date']+list(categories.split(','))
         data=np.array([row_1])
         df= pd.DataFrame(data=data, columns=header)
-        df=df.set_index('Date')
         print(df)
-        df.to_csv(name)
+        df.to_csv(name,index=False)
+        df=pd.read_csv(name)
         return df
 
 

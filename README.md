@@ -13,7 +13,7 @@ After new data to the file, a bar and line graph will be displayed, showing the 
 It is possible to specify a certain category to be displyed instead of total.
 
 ### Creating new expense file
-If you simply run the code without further argument, i.e. by typing python project.py, you will create a new csv file by specifying
+If you simply run the code without further argument, i.e. by typing python expense_tracker.py, you will create a new csv file by specifying
 its name, e.g. expense.csv. Be sure to include the suffix .csv as the code only supports csv format.
 
 After that, you will be prompted to provide a date, specifying when the expense took place, suppose you have provided rent, food, clothes.
@@ -28,7 +28,7 @@ So the first time you create a new file, the line plot on the right is empty.
 
 ### Opening an existing file
 If you have created a csv file containing your expenses last time and want to update it with new items, you can simply provide the name of
-the csv file as an additional argument, i.e. run python project.py expense.csv (Suppose the name for the existing file is expense.csv as above)
+the csv file as an additional argument, i.e. run python expense_tracker.py expense.csv (Suppose the name for the existing file is expense.csv as above)
 Please make sure that you have provided the correct name with .csv suffix.
 
 The code in this case will first display the last five rows (if availabe) for your reference, since you will provide a new row of data and need to know
